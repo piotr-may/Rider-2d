@@ -70,8 +70,8 @@ public class CarController : MonoBehaviour
         else
         {
             Debug.Log("Obr");
-            //backTire.AddTorque(-movement * speed *20* Time.fixedDeltaTime);
-            //frontTire.AddTorque(-movement * speed *20* Time.fixedDeltaTime);
+            backTire.AddTorque(-movement * speed *20* Time.fixedDeltaTime);
+            frontTire.AddTorque(-movement * speed *20* Time.fixedDeltaTime);
             carRigidbody.AddTorque(-movement * carTorgue*20 * Time.fixedDeltaTime);
 
             if (movement > 0)
