@@ -24,6 +24,7 @@ public class CarController : MonoBehaviour
         {
             movement = movementPower;
         }
+        
     }
 
     private bool isGrounded()
@@ -59,28 +60,29 @@ public class CarController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
         if (isGrounded())
         {
             backTire.AddTorque(-movement * speed * Time.fixedDeltaTime);
             frontTire.AddTorque(-movement * speed * Time.fixedDeltaTime);
-            carRigidbody.AddTorque(-movement * carTorgue * Time.fixedDeltaTime); 
-   
+            carRigidbody.AddTorque(-movement * carTorgue * Time.fixedDeltaTime);
+            //carRigidbody.velocity = new Vector2(movement,0) * 5f;
         }
         else
         {
             Debug.Log("Obr");
-            backTire.AddTorque(-movement * speed *20* Time.fixedDeltaTime);
-            frontTire.AddTorque(-movement * speed *20* Time.fixedDeltaTime);
-            carRigidbody.AddTorque(-movement * carTorgue*20 * Time.fixedDeltaTime);
 
-            if (movement > 0)
-            {
-                //Debug.Log("Obracanie");
-                //Vector3 rotationChange = new Vector3(0, 0,rotatePower);
-                //transform.RotateAround(transform.position, Vector3.forward, rotatePower);
-            }
-            
+            //backTire.AddTorque(-movement * speed *20* Time.fixedDeltaTime);
+            //frontTire.AddTorque(-movement * speed *20* Time.fixedDeltaTime);
+            carRigidbody.AddTorque(-movement * carTorgue * rotatePower * Time.fixedDeltaTime);
+
+            //if (movement > 0)
+            //{
+            //Debug.Log("Obracanie");
+            //Vector3 rotationChange = new Vector3(0, 0,rotatePower);
+            //transform.RotateAround(transform.position, Vector3.forward, rotatePower);
+            //}
+
         }
+
     }
 }
